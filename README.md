@@ -9,7 +9,8 @@ List of changes:
  - New players start with 1000 inventory
  - Because stamina is infinite, the stamina-related daily gifts have been replaced with gem gifts
  - The retry cost for the daily gift has been made free
- - the weight of all daily gifts has been equalized (you are equally likely to land on any reward)
+ - The weight of all daily gifts has been equalized (you are equally likely to land on any reward)
+ - Loot drops in quests (cards, sidequest items, and coins) are slightly more likely to appear
 ----
 
 A port of the "Adventure Time: Card Wars" mobile game to PC.
