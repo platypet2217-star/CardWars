@@ -198,7 +198,7 @@ public class CreatureBattleScript : MonoBehaviour
 						{
 							num2 = 1f;
 						}
-						float num3 = UnityEngine.Random.Range(0f, 1f);
+						float num3 = UnityEngine.Random.Range(0f, 0.8f);
 						if (num3 <= num2)
 						{
 							return sideQuestData2;
@@ -238,7 +238,7 @@ public class CreatureBattleScript : MonoBehaviour
 			CardItem card = GameInstance.GetCard(Player, LaneIndex, CardType.Creature);
 			num = card.CoinDropRate;
 		}
-		float num2 = UnityEngine.Random.Range(0f, 1f);
+		float num2 = UnityEngine.Random.Range(0f, 0.8f);
 		return num2 <= num;
 	}
 
@@ -270,7 +270,7 @@ public class CreatureBattleScript : MonoBehaviour
 			CardItem card = GameInstance.GetCard(Player, LaneIndex, CardType.Creature);
 			num = card.DropRate;
 		}
-		float num2 = UnityEngine.Random.Range(0f, 1f);
+		float num2 = UnityEngine.Random.Range(0f, 0.8f);
 		return num2 <= num;
 	}
 
