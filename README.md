@@ -1,18 +1,15 @@
+English
 # Card Wars
-## Changes in this fork
-This fork is intended to change some of the aspects of the game that reflect common mobile game penny-pinching without adding too many features that feel cheaty. The more cheaty additions are optional in gameplay.
+## Changes in this fork based on Laxbby's version
+The main purpose of this version is to fix bugs in the game, as well as to perform maintenance and add new features where appropriate.
 
-The changes made here were partially inspired by the wonderful unofficial Obsidian Edition of the game, available for Android: https://old.reddit.com/r/CardWars/comments/1f9jwzq/card_wars_for_newer_android_versions/
+Español
+# Guerra de cartas
+## Los cambios de este fork están basadas en la versión de Laxbby
+Esta versión tiene como objetivo principal corregir los inconvenientes del juego, además de dar mantenimiento junto con algún agregado de ser el caso.
+Sientanse libres de crear Issues en idioma español, ya que es mi lengua nativa
 
-List of changes:
- - Stamina regenerates instantly
- - New players start with 1000 inventory
- - Because stamina is infinite, the stamina-related daily gifts have been replaced with gem gifts
- - The retry cost for the daily gift has been made free
- - The weight of all daily gifts has been equalized (you are equally likely to land on any reward)
- - Loot drops in quests (cards, sidequest items, and coins) are slightly more likely to appear
-----
-
+English
 A port of the "Adventure Time: Card Wars" mobile game to PC.
 
 Floop the Pig! It's Adventure Time CARD WARS! Play the game inspired by the Adventure TIme episode, 'Card Wars'! Summon creatures and cast spells to battle your way to victory.
@@ -35,8 +32,13 @@ It's CARD WARS!
 ## Download
 
 * [Latest Windows Version](https://github.com/Laxbby/CardWars/releases/download/1.12.8-3/CardWars-Windows.zip)
-* Mac Version - Coming Soon
-* Linux Version - Coming Soon (This game works 100% fine through wine though just btw)
+* Linux Version - Works well with the recently tested version of Proton, which is compatible with Cachyos.
+
+Español
+## Descarga
+* [Última Version de Windows](https://github.com/Laxbby/CardWars/releases/download/1.12.8-3/CardWars-Windows.zip)
+* Para Linux - Funciona bien con versión de proton probado recientemente con compatibilidad con Cachyos
+
 
 ## Images
 ![CardWars_r8d9H393Tp](https://i.imgur.com/cXUolY0.jpg)
