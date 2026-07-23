@@ -34,7 +34,7 @@ It's CARD WARS!
 
 ## Download
 
-* [Latest Windows Version](https://github.com/Laxbby/CardWars/releases/download/1.12.8-1/CardWars-Windows.zip)
+* [Latest Windows Version](https://github.com/Laxbby/CardWars/releases/download/1.12.8-3/CardWars-Windows.zip)
 * Mac Version - Coming Soon
 * Linux Version - Coming Soon (This game works 100% fine through wine though just btw)
 
