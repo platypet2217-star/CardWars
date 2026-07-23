@@ -21,7 +21,9 @@ public class PlayerInfoScript : MonoBehaviour
 		GotCreatureMusicMallard,
 		GotSpellCerebral,
 		GotSpellBriefPower,
-		GotSpikedMaceStump,
+		GotSpellCrystalBall,
+        GotSpellWitchWay,
+        GotSpikedMaceStump,
 		GotFreezyJ,
 		GotAwesomatude,
 		GotMeMow

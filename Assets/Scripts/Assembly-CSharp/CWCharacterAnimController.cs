@@ -174,7 +174,14 @@ public class CWCharacterAnimController : MonoBehaviour
 		if (anim != null && animFromJson != string.Empty)
 		{
 			anim.wrapMode = currentWrap;
-			anim.Play(animFromJson);
+
+            if (animFromJson.StartsWith("GunterFC_"))
+            {
+                animFromJson = animFromJson.Replace("GunterFC_", "Gunter_");
+            }
+
+            TFUtils.DebugLog(animFromJson);
+            anim.Play(animFromJson);
 			if (!clampForever)
 			{
 				anim.Rewind();

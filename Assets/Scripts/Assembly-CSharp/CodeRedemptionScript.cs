@@ -75,12 +75,22 @@ public class CodeRedemptionScript : MonoBehaviour
 			DoCardRedeem(PlayerInfoScript.Tag.GotSpellCerebral, "Spell_CerebralBloodstorm");
 			return;
 		}
-		if ("BRIEF" == input)
+        if ("BRIEF" == input)
+        {
+            DoCardRedeem(PlayerInfoScript.Tag.GotSpellBriefPower, "Spell_BriefPower");
+            return;
+        }
+        if ("FUTURE CW" == input)
 		{
-			DoCardRedeem(PlayerInfoScript.Tag.GotSpellBriefPower, "Spell_BriefPower");
+			DoCardRedeem(PlayerInfoScript.Tag.GotSpellCrystalBall, "Spell_CrystalBall");
 			return;
 		}
-		if ("123224" == input)
+        if ("FACTMASTER" == input)
+        {
+            DoCardRedeem(PlayerInfoScript.Tag.GotSpellWitchWay, "Spell_WitchWay");
+            return;
+        }
+        if ("123224" == input)
 		{
 			DoCardRedeem(PlayerInfoScript.Tag.GotCreatureMusicMallard, "Creature_MusicMallard");
 			return;
@@ -110,27 +120,32 @@ public class CodeRedemptionScript : MonoBehaviour
 			DoLeaderRedeem("Leader_BMOSweater");
 			return;
 		}
-		if ("GHOST DOG" == input && ScheduleDataManager.Instance.IsItemAvailableAndUnlocked("chest_premium", "halloween", TFUtils.ServerTime.Ticks))
+		if ("GHOST DOG" == input)
 		{
 			DoLeaderRedeem("Leader_JakeGhost");
 			return;
 		}
-		if ("LUMPS" == input && ScheduleDataManager.Instance.IsItemAvailableAndUnlocked("chest_premium", "christmas", TFUtils.ServerTime.Ticks))
+		if ("LUMPS" == input)
 		{
 			DoLeaderRedeem("Leader_LumpySweater");
 			return;
 		}
-		if ("UND3RPANT5" == input && Singleton<CodeRedemptionManager>.Instance.GetCurrentScheme() != null)
+		if ("UND3RPANT5" == input)
 		{
 			DoLeaderRedeem("Leader_FinnPajama");
 			return;
 		}
-		if ("DRKUNGFU" == input && Singleton<CodeRedemptionManager>.Instance.GetCurrentScheme() != null)
+		if ("DRKUNGFU" == input)
 		{
 			DoLeaderRedeem("Leader_FinnDoctor");
 			return;
 		}
-		if (Showfail != null)
+        if ("DRKUNGFU" == input)
+        {
+            DoLeaderRedeem("Leader_FinnDoctor");
+            return;
+        }
+        if (Showfail != null)
 		{
 			Showfail.Play(true);
 		}

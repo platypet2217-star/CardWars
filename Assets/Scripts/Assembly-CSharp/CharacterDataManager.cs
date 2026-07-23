@@ -93,6 +93,12 @@ public class CharacterDataManager : ILoadable
 
 	public CharacterData GetCharacterData(string id)
 	{
+        if (id == "Gunter02")
+        {
+            id = "GunterFC";
+        }
+
+        TFUtils.DebugLog(id);
 		return Characters[id];
 	}
 }
