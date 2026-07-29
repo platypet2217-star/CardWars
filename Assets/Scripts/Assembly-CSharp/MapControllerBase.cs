@@ -518,19 +518,74 @@ public abstract class MapControllerBase : MonoBehaviour
 		ReleaseMapPrefab();
 	}
 
-	protected void StartMapMusic()
-	{
-		SLOTAudioManager instance = SLOTGameSingleton<SLOTAudioManager>.GetInstance();
-		AudioSource audioSource = ((!(QuestMapInfo != null)) ? null : QuestMapInfo.MapMusic);
-		if (audioSource != null && !audioSource.isPlaying)
-		{
-			lastMusicSourceRef.Target = instance.LastMusicAudioSource;
-			instance.StopMusic(instance.LastMusicAudioSource);
-			instance.PlayMusic(audioSource, audioSource.clip, 0f, 1f);
-		}
-	}
+    protected void StartMapMusic()
+    {
+        SLOTAudioManager instance = SLOTGameSingleton<SLOTAudioManager>.GetInstance();
+        AudioSource audioSource = ((!(QuestMapInfo != null)) ? null : QuestMapInfo.MapMusic);
 
-	protected void StopMapMusic()
+        TFUtils.DebugLog("Entro en iniciar musica");
+
+        if (QuestMapInfo != null && QuestMapInfo.name == "QuestMap_FC(Clone)")
+        {
+            TFUtils.DebugLog("Entro a la condicion");
+
+            // 1. REPARACIÓN CRUCIAL: Si la variable del Inspector viene vacía, creamos/buscamos una bocina
+            if (audioSource == null)
+            {
+                TFUtils.DebugLog("audioSource era nulo, forzando creación en la Cámara Principal...");
+
+                // Usamos la cámara principal como un contenedor seguro para que emita el sonido
+                if (Camera.main != null)
+                {
+                    audioSource = Camera.main.gameObject.GetComponent<AudioSource>();
+                    if (audioSource == null)
+                    {
+                        audioSource = Camera.main.gameObject.AddComponent<AudioSource>();
+                    }
+                }
+                else
+                {
+                    // Si no hay cámara principal, lo añadimos a este mismo mapa
+                    audioSource = this.gameObject.GetComponent<AudioSource>();
+                    if (audioSource == null)
+                    {
+                        audioSource = this.gameObject.AddComponent<AudioSource>();
+                    }
+                }
+            }
+
+            // 2. Ahora que aseguramos que audioSource NO es nulo, cargamos y asignamos el clip seguro
+            AudioClip clipSeguro = Resources.Load<AudioClip>("FC_MapMenu");
+            TFUtils.DebugLog("Clip cargado: " + clipSeguro);
+
+            if (audioSource != null && clipSeguro != null)
+            {
+                TFUtils.DebugLog("Intenta forzar propiedades");
+                audioSource.clip = clipSeguro;
+                audioSource.spatialBlend = 0f; // Audio 2D completo
+                audioSource.volume = 1f;       // Forzamos volumen al 100%
+                audioSource.mute = false;
+                audioSource.loop = true;
+                TFUtils.DebugLog("Termina de forzar exitosamente");
+            }
+        }
+
+        // 3. Ejecución nativa adaptada (quitamos la condición de '!audioSource.isPlaying' temporalmente para la inyección)
+        if (audioSource != null)
+        {
+            lastMusicSourceRef.Target = instance.LastMusicAudioSource;
+            instance.StopMusic(instance.LastMusicAudioSource);
+
+            // Invocamos la función del manager que ya arreglamos para que procese el clip e inicie la música
+            instance.PlayMusic(audioSource, audioSource.clip, 0f, 1f);
+        }
+        else
+        {
+            TFUtils.DebugLog("Error crítico: No se pudo generar ningún AudioSource válido para reproducir.");
+        }
+    }
+
+    protected void StopMapMusic()
 	{
 		SLOTAudioManager instance = SLOTGameSingleton<SLOTAudioManager>.GetInstance();
 		AudioSource audioSource = ((!(QuestMapInfo != null)) ? null : QuestMapInfo.MapMusic);

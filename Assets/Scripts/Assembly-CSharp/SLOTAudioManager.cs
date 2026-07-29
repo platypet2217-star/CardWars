@@ -244,35 +244,78 @@ public class SLOTAudioManager : SLOTGameSingleton<SLOTAudioManager>
 		return PlayMusic(audioSource, audioclip, fadeOutSpeed, 1f);
 	}
 
-	public AudioSource PlayMusic(AudioSource audiosource, AudioClip audioclip, float fadeOutSpeed = 0f, float musicvolume = 1f)
-	{
-		if (audiosource == null)
-		{
-			return null;
-		}
-		if (audiosource.clip != audioclip || !audiosource.isPlaying)
-		{
-			if (fadeOutSpeed > 0f && audiosource.isPlaying)
-			{
-				FadeOutAndPlay(audiosource, audioclip, fadeOutSpeed, musicvolume);
-			}
-			else
-			{
-				audiosource.volume = musicVolume * musicvolume;
-				audiosource.clip = audioclip;
-				audiosource.Play();
-				SLOTMusic sLOTMusic = audiosource.gameObject.GetComponent(typeof(SLOTMusic)) as SLOTMusic;
-				if (sLOTMusic != null)
-				{
-					sLOTMusic.volume = musicvolume;
-				}
-			}
-			_lastMusicReference.Target = audiosource;
-		}
-		return audiosource;
-	}
+    public AudioSource PlayMusic(AudioSource audiosource, AudioClip audioclip, float fadeOutSpeed = 0f, float musicvolume = 1f)
+    {
+        TFUtils.DebugLog("Entro en musica");
+        TFUtils.DebugLog(audiosource);
+        if (audiosource == null)
+        {
+            return null;
+        }
 
-	public void StopMusic(AudioSource audiosource)
+        // Verifica la canción
+        TFUtils.DebugLog(audioclip);
+        TFUtils.DebugLog("Verifica");
+        if (audioclip == null || (audioclip != null && audioclip.name.ToLower().Contains("bubblegum")))
+        {
+            // Intentamos cargar el archivo .wav seguro desde la carpeta Resources
+            AudioClip clipSeguro = Resources.Load<AudioClip>("Bubblegum");
+            TFUtils.DebugLog(clipSeguro);
+            TFUtils.DebugLog("Debería cargar");
+            if (clipSeguro != null)
+            {
+                // Si la bocina ya está reproduciendo una canción diferente, continua y retorna
+                if (audiosource.clip != clipSeguro && audiosource.isPlaying)
+                {
+                    TFUtils.DebugLog("Retorna");
+                    return audiosource;
+                }
+
+                TFUtils.DebugLog("Intenta forzar");
+                // Se vuelve a cargar la música para la canción que no reproduce
+                audiosource.clip = clipSeguro;
+                audiosource.spatialBlend = 0f;
+                audiosource.volume = 1f;
+                audiosource.mute = false;
+                audiosource.loop = true;
+                audiosource.Play();
+
+                // Sincronizamos el componente SLOTMusic si existe para que no lo altere después
+                SLOTMusic sLOTMusic = audiosource.gameObject.GetComponent(typeof(SLOTMusic)) as SLOTMusic;
+                if (sLOTMusic != null)
+                {
+                    sLOTMusic.volume = 1f;
+                }
+
+                _lastMusicReference.Target = audiosource;
+                return audiosource;
+            }
+        }
+
+        TFUtils.DebugLog(audiosource);
+        if (audiosource.clip != audioclip || !audiosource.isPlaying)
+        {
+            if (fadeOutSpeed > 0f && audiosource.isPlaying)
+            {
+                FadeOutAndPlay(audiosource, audioclip, fadeOutSpeed, musicvolume);
+            }
+            else
+            {
+                audiosource.volume = musicVolume * musicvolume;
+                audiosource.clip = audioclip;
+                audiosource.Play();
+                SLOTMusic sLOTMusic = audiosource.gameObject.GetComponent(typeof(SLOTMusic)) as SLOTMusic;
+                if (sLOTMusic != null)
+                {
+                    sLOTMusic.volume = musicvolume;
+                }
+            }
+            _lastMusicReference.Target = audiosource;
+        }
+        return audiosource;
+    }
+
+    public void StopMusic(AudioSource audiosource)
 	{
 		if (audiosource != null)
 		{
