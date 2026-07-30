@@ -162,11 +162,29 @@ public class ActiveAnimation : IgnoreTimeScale
 				mAnim.Play();
 			}
 		}
-		else if (!mAnim.IsPlaying(clipName))
-		{
-			mAnim.Play(clipName);
-		}
-		foreach (AnimationState item in mAnim)
+        // Debes asegurarte de que el clip esté en una carpeta llamada "Resources" para usar este método
+        else if (!mAnim.IsPlaying(clipName))
+        {
+            // Verifica si el componente de animación conoce el clip
+            if (mAnim[clipName] == null)
+            {
+                // Intenta cargarlo desde la carpeta Resources/Animations/ (ajusta la ruta según tu proyecto)
+                AnimationClip clip = Resources.Load<AnimationClip>("Animations/" + clipName);
+                if (clip != null)
+                {
+                    mAnim.AddClip(clip, clipName);
+                }
+                else
+                {
+                    Debug.LogError("No se pudo cargar el clip desde Resources: " + clipName);
+                }
+            }
+
+            TFUtils.DebugLog(clipName);
+            mAnim.Play(clipName);
+        }
+
+        foreach (AnimationState item in mAnim)
 		{
 			if (string.IsNullOrEmpty(clipName) || item.name == clipName)
 			{
