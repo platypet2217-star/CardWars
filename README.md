@@ -1,7 +1,7 @@
 # English
-# Card Wars
+# Card Wars OG
 ## Changes in this fork based on Laxbby's version
-The main purpose of this version is to fix bugs in the game, as well as to perform maintenance and add new features where appropriate.
+The main purpose of this version is to fix bugs in the game, as well as to perform maintenance and add new features where appropriate, It will also bring back some stats and probabilities from earlier versions of the classic Card Wars for a nostalgic experience.
 
 A port of the "Adventure Time: Card Wars" mobile game to PC.
 
@@ -37,7 +37,7 @@ Card Wars uses Unity 2017.4.40f1. No other dependencies are required.
 # Español
 # Guerra de cartas port de pc
 ## Los cambios de este fork están basadas en la versión de Laxbby
-Esta versión tiene como objetivo principal corregir los inconvenientes del juego, además de dar mantenimiento junto con algún agregado de ser el caso.
+Esta versión tiene como objetivo principal corregir los inconvenientes del juego, además de dar mantenimiento junto con algún agregado de ser el caso, además va a traer de vuelta algunas estadísticas y probabilidades de versiones anteriores del guerra de cartas clásico para una experiencia nostálgica.
 
 Sientanse libres de crear Issues en idioma español, ya que es mi lengua nativa.
 
