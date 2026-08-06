@@ -40,6 +40,9 @@ Card Wars uses Unity 2017.4.40f1. No other dependencies are required.
 Esta versión tiene como objetivo principal corregir los inconvenientes del juego, además de dar mantenimiento junto con algún agregado de ser el caso, además va a traer de vuelta algunas estadísticas y probabilidades de versiones anteriores del guerra de cartas clásico para una experiencia nostálgica.
 
 Sientanse libres de crear Issues en idioma español, ya que es mi lengua nativa.
+Si quieren una versión con voces en español latino, visiten el repositorio creado por mi:
+
+* [Card Wars Latino](https://github.com/platypet2217-star/CardWarsLatino)
 
 ## Descarga
 * [Última Version de Windows](https://github.com/platypet2217-star/CardWars/releases/download/1.12.9-2/CardWars-1.12.9-2.zip)
