@@ -24,7 +24,7 @@ It's CARD WARS!
 
 ## Download
 
-* [Latest Windows Version](https://github.com/platypet2217-star/CardWars/releases/download/1.12.9-1/CardWars-1.12.9-1.zip)
+* [Latest Windows Version](https://github.com/platypet2217-star/CardWars/releases/download/1.12.9-2/CardWars-1.12.9-2.zip)
 * Linux Version - Works well with the recently tested version of Proton, which is compatible with Cachyos.
 
 ## Images
@@ -42,7 +42,7 @@ Esta versión tiene como objetivo principal corregir los inconvenientes del jueg
 Sientanse libres de crear Issues en idioma español, ya que es mi lengua nativa.
 
 ## Descarga
-* [Última Version de Windows](https://github.com/platypet2217-star/CardWars/releases/download/1.12.9-1/CardWars-1.12.9-1.zip)
+* [Última Version de Windows](https://github.com/platypet2217-star/CardWars/releases/download/1.12.9-2/CardWars-1.12.9-2.zip)
 * Para Linux - Funciona bien con versión de proton probado recientemente con compatibilidad con Cachyos
 
 Agradecimientos a toda la comunidad que ha hecho posible esto, desde los creadores del juego hasta las personas independientes que reportan errores dentro del juego, son increibles chicos.
